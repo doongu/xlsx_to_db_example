@@ -11,20 +11,20 @@ def update_data_query(xlsx_to_db_data_list):
     def sql(pri, a, c, d, e, f, g, h, i, j, k, l):
         
         sql = '''
-        INSERT INTO test_table( '최신파일명', '쇼핑몰', '주문일', '온라인상품명', '옵션', '판매자관리코드',	'주문수량', '금액', '배송비', '주문자명', '수령자명', '주소' )
+        INSERT INTO test_table( 최신파일명, 쇼핑몰, 주문일, 온라인상품명, 옵션, 판매자관리코드,	주문수량, 금액, 배송비, 주문자명, 수령자명, 주소 )
         VALUES( %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s )
         ON DUPLICATE KEY UPDATE
-            '쇼핑몰' = %s,
-            '주문일' = %s, 
-            '온라인상품명' = %s,
-            '옵션' = %s,
-            '판매자관리코드' = %s,
-            '주문수량' = %s,
-            '금액' = %s, 
-            '배송비' = %s, 
-            '주문자명' = %s, 
-            '수령자명' = %s, 
-            '주소' = %s, 
+            쇼핑몰 = %s,
+            주문일 = %s, 
+            온라인상품명 = %s,
+            옵션 = %s,
+            판매자관리코드 = %s,
+            주문수량 = %s,
+            금액 = %s, 
+            배송비 = %s, 
+            주문자명 = %s, 
+            수령자명 = %s, 
+            주소 = %s
         ''' % (pri, a, c, d, e, f, g, h, i, j, k, l, a, c, d, e, f, g, h, i, j, k, l)
         return sql
 
@@ -35,13 +35,7 @@ def update_data_query(xlsx_to_db_data_list):
                 query = sql(xlsx_to_db_data_list[i][0], xlsx_to_db_data_list[i][1], xlsx_to_db_data_list[i][2], 
                                     xlsx_to_db_data_list[i][3], xlsx_to_db_data_list[i][4], xlsx_to_db_data_list[i][5], 
                                     xlsx_to_db_data_list[i][6],xlsx_to_db_data_list[i][7], xlsx_to_db_data_list[i][8],
-                                    xlsx_to_db_data_list[i][9], xlsx_to_db_data_list[i][10], xlsx_to_db_data_list[i][11],
-                
-                                    xlsx_to_db_data_list[i][1], xlsx_to_db_data_list[i][2], xlsx_to_db_data_list[i][3], 
-                                    xlsx_to_db_data_list[i][4], xlsx_to_db_data_list[i][5], xlsx_to_db_data_list[i][6],
-                                    xlsx_to_db_data_list[i][7], xlsx_to_db_data_list[i][8], xlsx_to_db_data_list[i][9], 
-                                    xlsx_to_db_data_list[i][10], xlsx_to_db_data_list[i][11])
-                print(query)
+                                    xlsx_to_db_data_list[i][9], xlsx_to_db_data_list[i][10], xlsx_to_db_data_list[i][11])
                 curs.execute(query)
             
             conn.commit()

@@ -35,9 +35,14 @@ def update_data_query(xlsx_to_db_data_list):
             for i in range(len(xlsx_to_db_data_list)):
 
                 curs.execute(query, (xlsx_to_db_data_list[i][0], xlsx_to_db_data_list[i][1], xlsx_to_db_data_list[i][2], 
-                xlsx_to_db_data_list[i][3], xlsx_to_db_data_list[i][4], xlsx_to_db_data_list[i][5], 
-                xlsx_to_db_data_list[i][6],xlsx_to_db_data_list[i][7], xlsx_to_db_data_list[i][8],
-                xlsx_to_db_data_list[i][9], xlsx_to_db_data_list[i][10], xlsx_to_db_data_list[i][11]))
+                                    xlsx_to_db_data_list[i][3], xlsx_to_db_data_list[i][4], xlsx_to_db_data_list[i][5], 
+                                    xlsx_to_db_data_list[i][6],xlsx_to_db_data_list[i][7], xlsx_to_db_data_list[i][8],
+                                    xlsx_to_db_data_list[i][9], xlsx_to_db_data_list[i][10], xlsx_to_db_data_list[i][11],
+                
+                                    xlsx_to_db_data_list[i][1], xlsx_to_db_data_list[i][2], xlsx_to_db_data_list[i][3], 
+                                    xlsx_to_db_data_list[i][4], xlsx_to_db_data_list[i][5], xlsx_to_db_data_list[i][6],
+                                    xlsx_to_db_data_list[i][7], xlsx_to_db_data_list[i][8], xlsx_to_db_data_list[i][9], 
+                                    xlsx_to_db_data_list[i][10], xlsx_to_db_data_list[i][11]))
             
             conn.commit()
     finally:

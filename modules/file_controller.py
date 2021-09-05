@@ -13,14 +13,16 @@ def Find_the_latest_files(root_dir, d_day):
         elif temp_cnt == 1:
             max_month = max(dirs) # 월 중에서 제일 최고 값을 저장
             temp_cnt += 1
-        else:
-            store_list = dirs
             break
-
 
     # 젤 최신 폴더를 탐색 했으니 경로 재지정
     re_root_dir = root_dir + max_year + "/" + max_month + "/"
 
+    temp_cnt = 0
+    for (root, dirs, files) in os.walk(re_root_dir):
+         if temp_cnt == 0:
+             store_list = dirs
+             break
 
     # 이제 최신 d-day만큼의 파일 경로를 저장 후 값을 반환값
     return_list = []

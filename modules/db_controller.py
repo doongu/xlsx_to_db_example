@@ -25,8 +25,8 @@ def update_data_query(xlsx_to_db_data_list):
             주문자명 = %s, 
             수령자명 = %s, 
             주소 = %s
-        ''' % (pri, a, c, d, e, f, g, h, i, j, k, l, a, c, d, e, f, g, h, i, j, k, l)
-        return sql
+        '''  
+        curs.execute( sql, (pri, a, c, d, e, f, g, h, i, j, k, l, a, c, d, e, f, g, h, i, j, k, l,))
 
 
     try:
@@ -36,11 +36,10 @@ def update_data_query(xlsx_to_db_data_list):
                                     xlsx_to_db_data_list[i][3], xlsx_to_db_data_list[i][4], xlsx_to_db_data_list[i][5], 
                                     xlsx_to_db_data_list[i][6],xlsx_to_db_data_list[i][7], xlsx_to_db_data_list[i][8],
                                     xlsx_to_db_data_list[i][9], xlsx_to_db_data_list[i][10], xlsx_to_db_data_list[i][11])
-                curs.execute(query)
             
             conn.commit()
     finally:
         conn.close()
 
-xlsx_to_db_data_list = [["1","2","3","4","5","6","7","8","9","10","11","12"]]
-update_data_query(xlsx_to_db_data_list)
+# xlsx_to_db_data_list = [["1","2","3","4","5","6","7","8","9","10","11","12"]]
+# update_data_query(xlsx_to_db_data_list)

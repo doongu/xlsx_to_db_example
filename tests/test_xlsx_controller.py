@@ -45,4 +45,4 @@ def data_selecter(location):
             print(return_list)
 
         # print(return_list)
-data_selecter("../매출분석/2022/3월/NEW심심수산/2021-09-06_심심수산_울도.xlsx")
+data_selecter("../../매출분석/2022/3월/NEW심심수산/2021-09-04_NEW심심수산.xlsx")

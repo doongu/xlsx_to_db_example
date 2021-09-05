@@ -8,7 +8,7 @@ def update_data_query(xlsx_to_db_data_list):
     '''connect root, kmong_db'''
     conn = pymysql.connect(host='localhost', user='root', password ='root', db='kmong_db',port =3306, charset='utf8')
 
-    def sql():
+    def sql(pri, a, c, d, e, f, g, h, i, j, k, l):
         
         sql = '''
         INSERT INTO test_table( '최신파일명', '쇼핑몰', '주문일', '온라인상품명', '옵션', '판매자관리코드',	'주문수량', '금액', '배송비', '주문자명', '수령자명', '주소' )
@@ -25,16 +25,14 @@ def update_data_query(xlsx_to_db_data_list):
             '주문자명' = %s, 
             '수령자명' = %s, 
             '주소' = %s, 
-        '''
+        ''' % (pri, a, c, d, e, f, g, h, i, j, k, l, a, c, d, e, f, g, h, i, j, k, l)
         return sql
 
 
     try:
-        query = sql()
         with conn.cursor() as curs:
             for i in range(len(xlsx_to_db_data_list)):
-
-                curs.execute(query, (xlsx_to_db_data_list[i][0], xlsx_to_db_data_list[i][1], xlsx_to_db_data_list[i][2], 
+                query = sql(xlsx_to_db_data_list[i][0], xlsx_to_db_data_list[i][1], xlsx_to_db_data_list[i][2], 
                                     xlsx_to_db_data_list[i][3], xlsx_to_db_data_list[i][4], xlsx_to_db_data_list[i][5], 
                                     xlsx_to_db_data_list[i][6],xlsx_to_db_data_list[i][7], xlsx_to_db_data_list[i][8],
                                     xlsx_to_db_data_list[i][9], xlsx_to_db_data_list[i][10], xlsx_to_db_data_list[i][11],
@@ -42,7 +40,9 @@ def update_data_query(xlsx_to_db_data_list):
                                     xlsx_to_db_data_list[i][1], xlsx_to_db_data_list[i][2], xlsx_to_db_data_list[i][3], 
                                     xlsx_to_db_data_list[i][4], xlsx_to_db_data_list[i][5], xlsx_to_db_data_list[i][6],
                                     xlsx_to_db_data_list[i][7], xlsx_to_db_data_list[i][8], xlsx_to_db_data_list[i][9], 
-                                    xlsx_to_db_data_list[i][10], xlsx_to_db_data_list[i][11]))
+                                    xlsx_to_db_data_list[i][10], xlsx_to_db_data_list[i][11])
+                print(query)
+                curs.execute(query)
             
             conn.commit()
     finally:

@@ -6,7 +6,7 @@ import pymysql
 def update_data_query(xlsx_to_db_data_list):
 
     '''connect root, kmong_db'''
-    conn = pymysql.connect(host='localhost', user='root', password ='root', db='kmog_db',port =3306, charset='utf8')
+    conn = pymysql.connect(host='localhost', user='root', password ='root', db='kmong_db',port =3306, charset='utf8')
 
     def sql():
         
@@ -43,5 +43,5 @@ def update_data_query(xlsx_to_db_data_list):
     finally:
         conn.close()
 
-xlsx_to_db_data_list = ["1","2","3","4","5","6","7","8","9","10","11","12"]
+xlsx_to_db_data_list = [["1","2","3","4","5","6","7","8","9","10","11","12"]]
 update_data_query(xlsx_to_db_data_list)

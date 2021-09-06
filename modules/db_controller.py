@@ -42,4 +42,5 @@ def update_data_query(xlsx_to_db_data_list):
         conn.close()
 
 # xlsx_to_db_data_list = [["1","2","3","4","5","6","7","8","9","10","11","12"]]
+
 # update_data_query(xlsx_to_db_data_list)

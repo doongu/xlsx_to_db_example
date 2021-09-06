@@ -33,7 +33,7 @@ def data_selecter(location):
                 g = str(load_ws.cell(index, 7).value) # 주문수량
                 h = str(load_ws.cell(index, 8).value) # 금액
                 i = str(load_ws.cell(index, 9).value) # 배송비
-                j = str(load_ws.cell(index, 10).value) #주문자명
+                j = str(load_ws.cell(index, 10).value) # 주문자명
                 k = str(load_ws.cell(index, 11).value) # 수령자명
                 l = str(load_ws.cell(index, 12).value) # 주소
                 
